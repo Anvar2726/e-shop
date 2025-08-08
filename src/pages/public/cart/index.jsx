@@ -4,7 +4,7 @@ import CartProductsCard from "./../../../components/card/cart-product/index";
 import EmptyCart from "./../../../components/empty-cart/index";
 
 import payme from "../../../assets/images/payme.png";
-import click from "../../../assets/images/click.png";
+import click from "../../../assets/images/Click.png";
 import visa from "../../../assets/images/visa.png";
 import mastercard from "../../../assets/images/mastercard.png";
 
