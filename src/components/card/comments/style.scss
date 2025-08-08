@@ -1,0 +1,84 @@
+.comments {
+  padding: 10px;
+
+  
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  &__item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 12px;
+    background-color: #fff;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+  }
+
+  &__name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #222;
+  }
+
+  &__date {
+    font-size: 12px;
+    color: #666;
+  }
+
+  &__rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 6px;
+  }
+
+  &__text {
+    font-size: 14px;
+    color: #333;
+    line-height: 20px;
+  }
+
+  /* Planshet */
+  @media (max-width: 1199px) {
+    &__title {
+      font-size: 20px;
+    }
+    &__name {
+      font-size: 13px;
+    }
+    &__text {
+      font-size: 13px;
+    }
+  }
+
+  /* Telefon */
+  @media (max-width: 768px) {
+    padding: 8px;
+
+    &__title {
+      font-size: 18px;
+    }
+    &__item {
+      padding: 10px;
+    }
+    &__name {
+      font-size: 12px;
+    }
+    &__date {
+      font-size: 11px;
+    }
+    &__text {
+      font-size: 12px;
+      line-height: 18px;
+    }
+  }
+}

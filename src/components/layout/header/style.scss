@@ -1,0 +1,120 @@
+.header {
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  position: fixed;
+  width: 100%;
+  padding: 20px 0;
+  top: 0;
+  z-index: 999;
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+  }
+
+  &__logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #00bcd4;
+    text-decoration: none;
+  }
+  &__link {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s;
+
+    &:hover {
+      color: #00bcd4;
+    }
+  }
+  &__cart {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    span{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: #00bcd4;
+      color: white;
+      font-size: 12px;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    align-items: center;
+    // Animate uchun
+    transition: all 0.3s ease-in-out;
+
+    li {
+      display: flex;
+      align-items: center;
+    }
+
+    .active {
+      color: #00bcd4;
+    }
+
+    &.open-menu {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 65px;
+      left: 0;
+      width: 100%;
+      background-color: #fff;
+      padding: 1rem 2rem;
+      gap: 1.2rem;
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+  }
+
+  &__hamburger {
+    display: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+
+  // RESPONSIVE
+  @media (max-width: 768px) {
+    &__menu {
+      position: absolute;
+      top: 70px;
+      left: 0;
+      width: 100%;
+      background-color: #fff;
+      flex-direction: column;
+      gap: 1.2rem;
+      padding: 1rem 2rem;
+
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      pointer-events: none;
+    }
+
+    &__menu.open-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    &__hamburger {
+      display: block;
+      color: #111;
+    }
+  }
+}

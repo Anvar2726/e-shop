@@ -1,0 +1,348 @@
+// .product {
+//   &__title {
+//     margin: 20px 0;
+//   }
+//   &__content-box {
+//     padding: 10px;
+//     display: flex;
+//     align-items: start;
+//     border: 1px solid #ededed;
+//     border-radius: 8px;
+//   }
+//   &__img-box{
+//     display: flex;
+//   }
+
+//   &__main-img {
+//     width: 450px;
+//     height: 400px;
+//     margin-right: 20px;
+//     border-radius: 8px;
+//     object-fit: cover;
+//   }
+
+//   &__gallery {
+//     display: flex;
+//     flex-direction: column;
+
+//     img {
+//       width: 150px;
+//       height: 150px;
+//       border: 1px solid #ccc;
+//       border-radius: 8px;
+//       margin-bottom: 10px;
+//       padding: 4px;
+//     }
+//   }
+//   &__info {
+//     padding: 20px;
+//     max-width: 600px;
+//     width: 100%;
+//     display: flex;
+//     flex-direction: column;
+//     gap: 16px;
+//   }
+//   &__description {
+//     font-size: 16px;
+//     line-height: 24px;
+//     color: #333333;
+//   }
+//   &__category {
+//     text-transform: capitalize;
+//   }
+//   &__category,
+//   &__brand {
+//     font-size: 14px;
+//     color: #555555;
+
+//     span {
+//       font-weight: 600;
+//       color: #222222;
+//     }
+//   }
+//   &__price {
+//     font-size: 24px;
+//     font-weight: bold;
+//     color: #e91e63;
+//   }
+
+//   &__tags {
+//     display: flex;
+//     flex-wrap: wrap;
+//     gap: 8px;
+//   }
+//   &__tag {
+//     font-size: 13px;
+//     padding: 6px 12px;
+//     background-color: #f0f0f0;
+//     color: #444;
+//     border-radius: 20px;
+//     border: 1px solid #ccc;
+//   }
+//   &__control {
+
+//     div{
+//         display: flex;
+//         align-items: center;
+//         gap: 5px;
+//     }
+//     button {
+//       display: flex;
+//       align-items: center;
+//       gap: 10px;
+//       background-color: #703bf7;
+//       color: #fff;
+//       padding: 6px 18px;
+//       font-size: 16px;
+//       border-radius: 18px;
+//       border: none;
+//       cursor: pointer;
+//       transition: background 0.3s ease;
+
+//       &:hover {
+//         background-color: #5925dc;
+//       }
+//     }
+//     span {
+//       font-size: 16px;
+//       min-width: 24px;
+//       text-align: center;
+//       font-weight: 500;
+//     }
+//   }
+
+//   @media (max-width: 768px) {
+//     padding: 16px;
+//     gap: 12px;
+
+//     &__content-box {
+//       flex-direction: column;
+//       align-items: center;
+//     }
+
+//     &__price {
+//       font-size: 20px;
+//     }
+
+//     &__description {
+//       font-size: 14px;
+//       line-height: 22px;
+//     }
+
+//     &__category,
+//     &__brand {
+//       font-size: 13px;
+//     }
+
+//     &__tag {
+//       font-size: 12px;
+//       padding: 4px 10px;
+//     }
+//   }
+// }
+
+.product {
+  &__title {
+    margin: 20px 0;
+    font-size: 28px;
+  }
+
+  &__content-box {
+    padding: 10px;
+    display: flex;
+    align-items: flex-start;
+    border: 1px solid #ededed;
+    border-radius: 8px;
+    gap: 20px;
+  }
+
+  &__img-box {
+    display: flex;
+    gap: 10px;
+  }
+
+  &__main-img {
+    width: 450px;
+    height: 400px;
+    margin-right: 20px;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+
+  &__gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    img {
+      width: 150px;
+      height: 150px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 4px;
+      cursor: pointer;
+    }
+  }
+
+  &__info {
+    padding: 20px;
+    max-width: 600px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__description {
+    font-size: 16px;
+    line-height: 24px;
+    color: #333;
+  }
+
+  &__category {
+    text-transform: capitalize;
+  }
+
+  &__category,
+  &__brand {
+    font-size: 14px;
+    color: #555;
+
+    span {
+      font-weight: 600;
+      color: #222;
+    }
+  }
+
+  &__price {
+    font-size: 24px;
+    font-weight: bold;
+    color: #e91e63;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  &__tag {
+    font-size: 13px;
+    padding: 6px 12px;
+    background-color: #f0f0f0;
+    color: #444;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+  }
+
+  &__control {
+    div {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    button {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background-color: #703bf7;
+      color: #fff;
+      padding: 6px 18px;
+      font-size: 16px;
+      border-radius: 18px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s ease;
+
+      &:hover {
+        background-color: #5925dc;
+      }
+    }
+    span {
+      font-size: 16px;
+      min-width: 24px;
+      text-align: center;
+      font-weight: 500;
+    }
+  }
+
+  &__comments-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
+
+  /* --- Planshet (768px - 1199px) --- */
+  @media (max-width: 1199px) {
+    &__main-img {
+      width: 350px;
+      height: 300px;
+    }
+
+    &__gallery img {
+      width: 100px;
+      height: 100px;
+    }
+
+    &__title {
+      font-size: 24px;
+    }
+  }
+
+  /* --- Telefon (<768px) --- */
+  @media (max-width: 768px) {
+    &__content-box {
+      flex-direction: column;
+      align-items: center;
+      padding: 10px;
+    }
+
+    &__img-box {
+      flex-direction: column-reverse;
+      align-items: center;
+    }
+
+    &__gallery {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      img {
+        width: 80px;
+        height: 80px;
+      }
+    }
+
+    &__main-img {
+      width: 100%;
+      height: auto;
+      margin: 0 0 10px 0;
+    }
+
+    &__info {
+      padding: 10px;
+      gap: 12px;
+    }
+
+    &__description {
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    &__category,
+    &__brand {
+      font-size: 13px;
+    }
+
+    &__price {
+      font-size: 20px;
+    }
+
+    &__tag {
+      font-size: 12px;
+      padding: 4px 8px;
+    }
+  }
+}
+

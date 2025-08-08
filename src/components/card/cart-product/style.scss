@@ -1,0 +1,164 @@
+.cart-product {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 30px;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 20px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+
+  &__img {
+    width: 150px;
+    height: auto;
+    object-fit: cover;
+    padding: 8px;
+    border: 1px solid #dddddd;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  &__del-btn {
+    svg {
+      width: 25px;
+    }
+    position: absolute;
+    right: 0;
+    display: flex;
+    align-items: center;
+    font-family: inherit;
+    opacity: 0.5;
+    &:hover {
+      opacity: 1;
+      color: #e11d1d;
+      svg {
+        fill: #e11d1d;
+      }
+    }
+  }
+
+  &__info-box {
+    flex: 1;
+
+    h2 {
+      font-size: 22px;
+      margin-bottom: 8px;
+      color: #111827;
+    }
+
+    p {
+      font-size: 14px;
+      color: #555;
+      line-height: 22px;
+      margin-bottom: 10px;
+      max-width: 70%;
+    }
+  }
+
+  &__category,
+  &__tags span {
+    display: inline-block;
+    border: 1px solid #d1d5db;
+    background-color: #f3f4f6;
+    padding: 6px 14px;
+    border-radius: 18px;
+    font-size: 14px;
+    color: #374151;
+    margin: 6px 6px 6px 0;
+    text-transform: capitalize;
+    transition: background 0.3s ease;
+  }
+  &__tags span {
+    padding: 2px 8px;
+    font-size: 12px;
+  }
+
+  &__category:hover,
+  &__tags span:hover {
+    background-color: #e5e7eb;
+  }
+
+  &__control-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+
+    h3 {
+      font-size: 16px;
+      color: #111;
+      margin: 4px 0;
+    }
+  }
+
+  &__btns-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    button {
+      background-color: #703bf7;
+      color: #fff;
+      padding: 6px 18px;
+      font-size: 16px;
+      border-radius: 18px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s ease;
+
+      &:hover {
+        background-color: #5925dc;
+      }
+    }
+
+    span {
+      font-size: 16px;
+      min-width: 24px;
+      text-align: center;
+      font-weight: 500;
+    }
+  }
+}
+
+.btn-disabled {
+  background-color: #9973f9 !important;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .cart-product {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    &__img {
+      width: 120px;
+    }
+    &__del-btn {
+      position: relative;
+    }
+
+    &__control-box {
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    &__btns-box {
+      justify-content: center;
+    }
+
+    &__info-box {
+      h2 {
+        font-size: 18px;
+      }
+
+      p {
+        max-width: 100%;
+      }
+    }
+  }
+}
