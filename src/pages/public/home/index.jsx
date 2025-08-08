@@ -87,10 +87,10 @@ const HomePage = () => {
         <div className="newsletter__content container">
           <h2>Join Our Newsletter</h2>
           <p>Subscribe and get exclusive deals, updates and more.</p>
-          <form className="newsletter__form">
+          <div className="newsletter__form">
             <input type="email" placeholder="Enter your email" />
-            <button type="submit">Subscribe</button>
-          </form>
+            <button>Subscribe</button>
+          </div>
         </div>
       </section>
     </section>
