@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { ESHOP } from "../../constants";
+import { toast } from "react-toastify";
 
 const initialState = {
   cartProducts: JSON.parse(localStorage.getItem(ESHOP)) || [],
@@ -14,6 +15,7 @@ export const cartProductSlice = createSlice({
       if (isInCart) {
         isInCart.quantity += 1;
       } else {
+        toast.success("Product added to cart successfully!");
         state.cartProducts.push({ ...payload, quantity: 1 });
       }
       localStorage.setItem(ESHOP, JSON.stringify(state.cartProducts));
@@ -31,12 +33,14 @@ export const cartProductSlice = createSlice({
         if (product.quantity > 1) {
           product.quantity -= 1;
         } else {
+          toast.error("Product removed from cart!");
           state.cartProducts = state.cartProducts.filter((el) => el.id !== payload.id);
         }
       }
       localStorage.setItem(ESHOP, JSON.stringify(state.cartProducts));
     },
     deleteProductInCart: (state, { payload }) => {
+      toast.error("Product removed from cart!");
       state.cartProducts = state.cartProducts.filter((el) => el.id !== payload);
       localStorage.setItem(ESHOP, JSON.stringify(state.cartProducts));
     },

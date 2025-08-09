@@ -137,10 +137,13 @@
       border-radius: 8px;
       padding: 16px 19px;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: all 0.8s ease;
       box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
 
       .accordion__question {
+        display: flex;
+        gap: 8px;
+        align-items: center;
         font-weight: 600;
         font-size: 17px;
         color: #222;
@@ -181,4 +184,15 @@
       padding: 13px;
     }
   }
+}
+
+
+.accordion__icon {
+  display: inline-block;
+  margin-left: 8px;
+  transition: transform 0.3s ease;
+}
+
+.accordion__icon.rotate {
+  transform: rotate(180deg); /* pastga qaraydi */
 }

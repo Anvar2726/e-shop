@@ -31,6 +31,7 @@
     font-family: inherit;
     opacity: 0.5;
     &:hover {
+      transition: 0.5s;
       opacity: 1;
       color: #e11d1d;
       svg {
@@ -128,7 +129,6 @@
   cursor: not-allowed;
 }
 
-/* 📱 Responsive */
 @media (max-width: 768px) {
   .cart-product {
     flex-direction: column;

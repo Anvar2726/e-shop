@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { NavLink, useLocation } from "react-router";
+import { NavLink, useLocation, useNavigationType } from "react-router";
 import { FiMenu, FiX } from "react-icons/fi";
 import { TiShoppingCart } from "react-icons/ti";
 
@@ -9,9 +9,21 @@ import { useSelector } from "react-redux";
 const Header = () => {
   const menuRef = useRef(null);
   const location = useLocation();
+  const { pathname } = useLocation();
+  const navigationType = useNavigationType();
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { cartProducts } = useSelector((state) => state.cartProducts);
-  
+
+  useEffect(() => {
+    if (navigationType === "PUSH") {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
+  }, [pathname, navigationType]);
+
   useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [location]);

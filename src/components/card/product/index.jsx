@@ -11,8 +11,8 @@ import "./style.scss";
 
 const ProductCard = (product) => {
   const { cartProducts } = useSelector((state) => state.cartProducts);
-  const isInCart = cartProducts.find((el) => el.id === product.id);
   const { favoriteProducts } = useSelector((state) => state.favoriteProducts);
+  const isInCart = cartProducts.find((el) => el.id === product.id);
   const isInFavorite = favoriteProducts.find((el) => el.id === product.id);
 
   const dispatch = useDispatch();

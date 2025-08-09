@@ -3,20 +3,25 @@ import { BsCartPlus } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 
-import { useGetProductQuery } from "../../../redux/query/products";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
+
+import { useGetProductQuery, useGetRelatedProductsQuery } from "../../../redux/query/products";
 import { addToCart, decreaseQuantity, increaseQuantity } from "../../../redux/slice/cart-products";
+import Comments from "../../../components/card/comments";
+import ProductCard from "../../../components/card/product";
 
 import "./style.scss";
-import Comments from "../../../components/card/comments";
 
 const ProductPage = () => {
   const { productId: Id } = useParams();
   const { data: product } = useGetProductQuery(Id);
-  const {cartProducts} = useSelector((state) => state.cartProducts);
-  
+  const { data } = useGetRelatedProductsQuery(product?.category);
+  const { cartProducts } = useSelector((state) => state.cartProducts);
   const dispatch = useDispatch();
-  const isinCart = cartProducts.find((el) => el.id === product?.id);
 
+  const relatedProducts = data?.products;
+  const isinCart = cartProducts.find((el) => el.id === product?.id);
 
   const [img, setImg] = useState("");
 
@@ -73,6 +78,45 @@ const ProductPage = () => {
         {product?.reviews?.map((review, i) => (
           <Comments {...review} key={i} />
         ))}
+      </div>
+      <div className="related-products">
+        <h2>Related Products</h2>
+
+        <Swiper
+          slidesPerView={3}
+          spaceBetween={30}
+          pagination={{
+            clickable: true,
+          }}
+          modules={[Navigation, Pagination]}
+          className="mySwiper"
+          breakpoints={{
+            768: {
+              slidesPerView: 3,
+              spaceBetween: 30,
+            },
+            640: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+            },
+            320: {
+              slidesPerView: 1,
+              spaceBetween: 10,
+            },
+            300: {
+              slidesPerView: 1,
+              spaceBetween: 5,
+            },
+          }}
+        >
+          {relatedProducts?.filter((el)=> el.id !== product?.id)?.map((item) => (
+            <SwiperSlide>
+              <ProductCard key={item.id} {...item} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
+        <div className="related-products__row"></div>
       </div>
     </section>
   );

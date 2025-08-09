@@ -9,7 +9,7 @@ const FavoritePage = () => {
 
   return (
     <section className="favorite container">
-      <h2 className="favorite__title">Favorite products</h2>
+      <h2 className="favorite__title">Your Favorites</h2>
       {favoriteProducts.length > 0 ? (
         <div className="favorite__products-row">
           {favoriteProducts.map((product) => <ProductCard {...product} key={product.id} />)}

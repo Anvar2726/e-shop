@@ -12,6 +12,7 @@ import { LIMIT } from "../../../constants";
 
 import "./style.scss";
 import request from "../../../server";
+import ProductNotFound from "../../../components/no-product";
 
 const ProductsPage = () => {
   // State variables
@@ -20,19 +21,20 @@ const ProductsPage = () => {
   const [category, setCategory] = useState("");
   const [listCategories, setListCategories] = useState([]);
   const [search, setSearch] = useState("");
-  
+
   useEffect(() => {
     async function getCategories() {
-      const {data} = await request("products/category-list");
+      const { data } = await request("products/category-list");
       setListCategories(data);
     }
     getCategories();
-  },[])
-  
+  }, []);
+
   const params = { skip, limit: LIMIT };
-  const { data, isFetching } = useGetProductsQuery({params, category, search} );
+  const { data, isFetching } = useGetProductsQuery({ params, category, search });
   const products = data?.products;
-  const pageCount = Math.ceil(data?.total / LIMIT);
+  const total = data?.total;
+  const pageCount = Math.ceil(total / LIMIT);
 
   // Handlers
   const toggleSidebar = () => {
@@ -47,12 +49,12 @@ const ProductsPage = () => {
   const getCategory = (cat) => {
     setCategory(cat);
     setShowSidebar(false);
-  }
+  };
 
   const handleSearch = (e) => {
     setSearch(e.target.value);
     setSkip(0);
-  }
+  };
 
   return (
     <section className="products container">
@@ -63,7 +65,7 @@ const ProductsPage = () => {
         <label htmlFor="product-search" className="products__search-wrapper">
           <FaSearch className="products__search-icon" />
           <input
-          onChange={handleSearch}
+            onChange={handleSearch}
             id="product-search"
             type="text"
             className="products__search"
@@ -85,6 +87,8 @@ const ProductsPage = () => {
       <div className="products__content">
         {isFetching ? (
           <Loading />
+        ) : total === 0 ? (
+          <ProductNotFound />
         ) : (
           <div className="products-row">
             {products?.map((product) => (
@@ -100,6 +104,7 @@ const ProductsPage = () => {
             nextLabel="next >"
             onPageChange={handlePageClick}
             pageRangeDisplayed={3}
+            marginPagesDisplayed={1}
             pageCount={pageCount}
             previousLabel="< previous"
           />

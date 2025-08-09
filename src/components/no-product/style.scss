@@ -1,0 +1,65 @@
+.product-notfound {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+
+  &__image {
+    max-width: 350px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  &__title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+  }
+
+  &__text {
+    font-size: 18px;
+    color: #666;
+    max-width: 500px;
+  }
+}
+
+/* 📱 Telefonlar */
+@media (max-width: 480px) {
+  .product-notfound {
+    padding: 15px;
+
+    &__image {
+      max-width: 220px;
+      margin-bottom: 15px;
+    }
+
+    &__title {
+      font-size: 24px;
+    }
+
+    &__text {
+      font-size: 16px;
+    }
+  }
+}
+
+/* 📱 Planshetlar */
+@media (max-width: 768px) {
+  .product-notfound {
+    &__image {
+      max-width: 280px;
+    }
+
+    &__title {
+      font-size: 28px;
+    }
+
+    &__text {
+      font-size: 17px;
+    }
+  }
+}

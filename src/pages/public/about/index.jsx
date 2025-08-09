@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { faqData, stats, timeline } from "../../../data";
 
 import "./style.scss";
+import { FiChevronLeft } from "react-icons/fi";
+import { FaChevronDown } from "react-icons/fa";
 
 const AboutPage = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -65,13 +67,33 @@ const AboutPage = () => {
       <div className="about__accordion">
         <h2>More About Us</h2>
         <div className="accordion__items">
+          {/* {faqData.map((item, index) => (
+            <div data-aos="fade-right" key={index}>
+              <div
+                className={`accordion__item ${activeIndex === index ? "active-accordion" : ""}`}
+                onClick={() => toggleAccordion(index)}
+              >
+                <div className="accordion__question">
+                  {item.question}
+                </div>
+                <div className="accordion__answer">
+                  {activeIndex === index && <p>{item.answer}</p>}
+                </div>
+              </div>
+            </div>
+          ))} */}
           {faqData.map((item, index) => (
             <div data-aos="fade-right" key={index}>
               <div
                 className={`accordion__item ${activeIndex === index ? "active-accordion" : ""}`}
                 onClick={() => toggleAccordion(index)}
               >
-                <div className="accordion__question">{item.question}</div>
+                <div className="accordion__question">
+                  <span className={`accordion__icon ${activeIndex === index ? "rotate" : ""}`}>
+                    <FaChevronDown />
+                  </span>
+                  {item.question}
+                </div>
                 <div className="accordion__answer">
                   {activeIndex === index && <p>{item.answer}</p>}
                 </div>
