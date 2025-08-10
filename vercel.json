@@ -2,7 +2,6 @@
   "rewrites": [
     { "source": "/(.*)", "destination": "/" }
   ],
-  "compress": true,
   "headers": [
     {
       "source": "/(.*)\\.(js|css|woff2|png|jpg|jpeg|gif|webp)",
