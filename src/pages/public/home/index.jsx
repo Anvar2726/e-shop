@@ -2,8 +2,9 @@ import { FaShippingFast, FaLock, FaGift, FaHeadset, FaStar } from "react-icons/f
 import { Link } from "react-router";
 
 import homeBanner from "../../../assets/images/home-banner.jpg";
-import "./style.scss";
 import { reviews } from "../../../data";
+
+import "./style.scss";
 
 const HomePage = () => {
   return (

@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import axios from "axios";
 
+import { TELEGRAM_BOT_URL } from "../../../constants";
 import CartProductsCard from "./../../../components/card/cart-product/index";
 import EmptyCart from "./../../../components/empty-cart/index";
+import { clearCart } from "../../../redux/slice/cart-products";
 
 import payme from "../../../assets/images/payme.png";
 import click from "../../../assets/images/Click.png";
@@ -14,10 +16,8 @@ import mastercard from "../../../assets/images/mastercard.png";
 import "./style.scss";
 
 const CartPage = () => {
-  const apiUrl = `https://api.telegram.org/bot${import.meta.env.VITE_BOT_ID}/sendMessage`;
-
   const { cartProducts } = useSelector((state) => state.cartProducts);
-
+  const dispatch = useDispatch();
   const couPonRef = useRef("");
   const [btnLoading, setBtnLoading] = useState(false);
   const [apply, setApply] = useState(true);
@@ -75,17 +75,18 @@ const CartPage = () => {
 
       try {
         setBtnLoading(true);
-        await axios.post(apiUrl, {
+        await axios.post(TELEGRAM_BOT_URL, {
           chat_id: import.meta.env.VITE_CHAT_ID,
           text: message,
         });
+        dispatch(clearCart()); // Clear cart after successful order
+        toast.success("Your order has been successfully placed in the Telegram bot!");
       } catch (error) {
         setBtnLoading(false);
         toast.error("Failed to send order to Telegram. Please try again later." + error.message);
-      }finally{
+      } finally {
         setBtnLoading(false);
-        toast.success("Your order has been successfully placed!");
-        couPonRef.current.value = "";
+        couPonRef.current.valueOf = "";
         setCoupon("");
         setApply(true);
       }
@@ -154,9 +155,12 @@ const CartPage = () => {
                 <p className="payment-card__hint">Choose how you want to pay</p>
               </div>
               {/* Checkout button */}
-              <button disabled={btnLoading} className={`checkout-btn ${btnLoading ? "checkout-disabled" : " "} `} onClick={sendProductsToTelegram}>
+              <button
+                disabled={btnLoading}
+                className={`checkout-btn ${btnLoading ? "checkout-disabled" : " "} `}
+                onClick={sendProductsToTelegram}
+              >
                 Place Order {btnLoading ? <span className="loading-btn"></span> : " "}
-                
               </button>
 
               {/* Payment methods */}

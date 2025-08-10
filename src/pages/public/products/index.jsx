@@ -10,9 +10,10 @@ import Loading from "../../../components/loading";
 
 import { LIMIT } from "../../../constants";
 
-import "./style.scss";
 import request from "../../../server";
 import ProductNotFound from "../../../components/no-product";
+
+import "./style.scss";
 
 const ProductsPage = () => {
   // State variables
@@ -46,8 +47,8 @@ const ProductsPage = () => {
     setSkip(page * LIMIT);
   };
 
-  const getCategory = (cat) => {
-    setCategory(cat);
+  const getCategory = (category) => {
+    setCategory(category);
     setShowSidebar(false);
   };
 
@@ -96,7 +97,7 @@ const ProductsPage = () => {
             ))}
           </div>
         )}
-
+        {/*<=== Pagination ===>*/}
         {data?.total > LIMIT ? (
           <ReactPaginate
             className="pagination"
