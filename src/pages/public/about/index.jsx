@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { memo, useState } from "react";
 
 import { FaChevronDown } from "react-icons/fa";
 import { faqData, stats, timeline } from "../../../data";
 
 import "./style.scss";
-const AboutPage = () => {
+const AboutPage = memo(() => {
   const [activeIndex, setActiveIndex] = useState(null);
 
   const toggleAccordion = (index) => {
@@ -87,6 +87,6 @@ const AboutPage = () => {
       </div>
     </section>
   );
-};
+});
 
 export default AboutPage;

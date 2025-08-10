@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { FaShippingFast, FaLock, FaGift, FaHeadset, FaStar } from "react-icons/fa";
 import { Link } from "react-router";
 
@@ -6,7 +7,7 @@ import { reviews } from "../../../data";
 
 import "./style.scss";
 
-const HomePage = () => {
+const HomePage = memo(() => {
   return (
     <section className="homepage">
       <section className="hero container">
@@ -96,6 +97,6 @@ const HomePage = () => {
       </section>
     </section>
   );
-};
+});
 
 export default HomePage;

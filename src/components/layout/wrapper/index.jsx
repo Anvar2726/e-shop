@@ -1,10 +1,10 @@
-import React from "react";
+import React, { memo } from "react";
 import { Outlet } from "react-router";
 
 import Header from "../header";
 import Footer from "../footer";
 
-const Layout = () => {
+const Layout = memo(() => {
   return (
     <>
       <Header />
@@ -14,6 +14,6 @@ const Layout = () => {
       <Footer />
     </>
   );
-};
+});
 
 export default Layout;

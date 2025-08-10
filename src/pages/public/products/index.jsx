@@ -1,5 +1,5 @@
 import { FaSearch } from "react-icons/fa";
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 
 import { RxHamburgerMenu } from "react-icons/rx";
 import ReactPaginate from "react-paginate";
@@ -15,7 +15,7 @@ import ProductNotFound from "../../../components/no-product";
 
 import "./style.scss";
 
-const ProductsPage = () => {
+const ProductsPage = memo(() => {
   // State variables
   const [showSidebar, setShowSidebar] = useState(false);
   const [skip, setSkip] = useState(0);
@@ -113,6 +113,6 @@ const ProductsPage = () => {
       </div>
     </section>
   );
-};
+});
 
 export default ProductsPage;

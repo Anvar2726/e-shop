@@ -1,10 +1,10 @@
-import React from "react";
+import React, { memo } from "react";
 import { useSelector } from "react-redux";
 import ProductCard from "../../../components/card/product";
 import EmptyCart from "../../../components/empty-cart";
 
 import "./style.scss";
-const FavoritePage = () => {
+const FavoritePage = memo(() => {
   const { favoriteProducts } = useSelector((state) => state.favoriteProducts);
 
   return (
@@ -19,6 +19,6 @@ const FavoritePage = () => {
       )}
     </section>
   );
-};
+});
 
 export default FavoritePage;

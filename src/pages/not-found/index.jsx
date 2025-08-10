@@ -1,11 +1,12 @@
-import React from "react";
+import React, { memo } from "react";
 import { useNavigate } from "react-router";
-
-import "./style.scss";
 
 import NotFoundImage from "../../assets/images/not-found-img.svg";
 
- const NotFoundPage = () => {
+import "./style.scss";
+
+
+ const NotFoundPage = memo(() => {
   const navigate = useNavigate();
   // This component renders a "Page Not Found" message with an image and a button to navigate back home.
   return (
@@ -20,5 +21,5 @@ import NotFoundImage from "../../assets/images/not-found-img.svg";
       </button>
     </div>
   );
-}
+});
 export  default NotFoundPage;

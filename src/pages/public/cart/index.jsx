@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { memo, useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import axios from "axios";
@@ -15,7 +15,7 @@ import mastercard from "../../../assets/images/mastercard.png";
 
 import "./style.scss";
 
-const CartPage = () => {
+const CartPage = memo(() => {
   const { cartProducts } = useSelector((state) => state.cartProducts);
   const dispatch = useDispatch();
   const couPonRef = useRef("");
@@ -181,6 +181,6 @@ const CartPage = () => {
       )}
     </section>
   );
-};
+});
 
 export default CartPage;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { memo, useState } from "react";
 import { BsCartPlus } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
@@ -13,7 +13,7 @@ import ProductCard from "../../../components/card/product";
 
 import "./style.scss";
 
-const ProductPage = () => {
+const ProductPage = memo(() => {
   const { productId: Id } = useParams();
   const { data: product } = useGetProductQuery(Id);
   const { data } = useGetRelatedProductsQuery(product?.category);
@@ -120,6 +120,6 @@ const ProductPage = () => {
       </div>
     </section>
   );
-};
+});
 
 export default ProductPage;
