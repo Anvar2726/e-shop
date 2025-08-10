@@ -2,7 +2,7 @@ import { memo } from "react";
 import { FaShippingFast, FaLock, FaGift, FaHeadset, FaStar } from "react-icons/fa";
 import { Link } from "react-router";
 
-import homeBanner from "../../../assets/images/home-banner.jpg";
+import homeBanner from "../../../assets/images/home-banner.webp";
 import { reviews } from "../../../data";
 
 import "./style.scss";
