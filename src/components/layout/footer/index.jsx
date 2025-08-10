@@ -14,7 +14,7 @@ const Footer = () => {
 
         <div className="footer__links">
           <div>
-            <h4>Company</h4>
+            <p>Company</p>
             <ul>
               <li>About Us</li>
               <li>Careers</li>
@@ -24,7 +24,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4>Support</h4>
+            <p>Support</p>
             <ul>
               <li>Help Center</li>
               <li>Returns</li>
@@ -34,7 +34,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4>Legal</h4>
+            <p>Legal</p>
             <ul>
               <li>Privacy Policy</li>
               <li>Terms of Service</li>
@@ -44,7 +44,7 @@ const Footer = () => {
         </div>
 
         <div className="footer__social">
-          <h4>Follow Us</h4>
+          <p>Follow Us</p>
           <div className="footer__icons">
             <FaFacebookF />
             <FaInstagram />

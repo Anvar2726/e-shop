@@ -49,7 +49,7 @@ const HomePage = memo(() => {
       </section>
       {/* testimonials */}
       <section className="testimonials container">
-        <h2>What Our Customers Say</h2>
+        <h3>What Our Customers Say</h3>
         <div className="testimonials__grid">
           {reviews.map((review, i) => (
             <div className="testimonial__card" key={i}>
