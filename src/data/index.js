@@ -1,5 +1,8 @@
 import { FaGlobe, FaLeaf, FaRocket, FaUsers } from "react-icons/fa";
 
+import sara from "../assets/images/44.webp";
+import david from "../assets/images/32.webp";
+import amina from "../assets/images/65.webp";
 
 const timeline = [
   { year: "2015", event: "Company Founded", icon: FaRocket },
@@ -11,19 +14,19 @@ const reviews = [
   {
     text: "Fantastic quality and quick shipping!",
     rating: 5,
-    img: "https://randomuser.me/api/portraits/women/44.jpg",
+    img: sara,
     name: "Sarah Johnson",
   },
   {
     text: "Customer service was super helpful.",
     rating: 4,
-    img: "https://randomuser.me/api/portraits/men/32.jpg",
+    img: david,
     name: "David Kim",
   },
   {
     text: "Great deals every time I visit!",
     rating: 5,
-    img: "https://randomuser.me/api/portraits/women/65.jpg",
+    img: amina,
     name: "Amina Rao",
   },
 ];
